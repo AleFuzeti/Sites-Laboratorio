@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cardápio</title>
+    <link rel="stylesheet" type="text/css" href="/main.css">
+</head>
+<body>
+    <h1 th:text="${restaurante.nome}"> </h1>
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Preço</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+        </tr>
+        <tr th:each="item : ${item_cardapio}">
+            <td th:text="${item.nome}"></td>
+            <td th:text="${item.descricao}"></td>
+            <td th:text="${item.preco}"></td>
+            <td><a th:href="@{/cardapio/editar/{id}/{item_id}(id=${restaurante.id}, item_id=${item.id})}">Editar</a></td>
+            <td><a th:href="@{/cardapio/remover/{id}/{item_id}(id=${restaurante.id}, item_id=${item.id})}">Remover</a></td>
+        </tr>
+    </table>
+    <p><a th:href="@{/cardapio/{id}/novo-item(id=${restaurante.id})}">Novo item</a></p>
+    <p><a href="/index">Voltar</a></p>
+</body>
+</html>

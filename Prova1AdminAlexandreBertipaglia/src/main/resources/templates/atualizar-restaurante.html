@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Atualizar Restaurante</title>
+        <link rel="stylesheet" type="text/css" href="/main.css">
+    </head>
+    <body>
+        <form action="#"
+            th:action="@{/atualizar/{id}(id=${restaurante.id})}"
+            th:object="${restaurante}"
+            method="post">
+        <label for="nome">Nome: </label>
+        <input type="text" th:field="*{nome}" id="nome">
+        <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+        <br/>
+        <input type="submit" value="Atualizar">
+        </form>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+      <meta charset="UTF-8">
+      <title>Carrinho de Compras</title>
+      <link rel="stylesheet" type="text/css" href="/main.css">
+  </head>
+  <body>
+    <h2>Carrinho de Compras</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Restaurante</th>
+                <th>Nome</th>
+                <th>Preço</th>
+                <th>Quantidade</th>
+                <th>Aumentar</th>
+                <th>Diminuir</th>
+                <th>Remover</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="item : ${carrinho}">
+                <td th:text="${item.restaurante.nome}"></td>
+                <td th:text="${item.nome}"></td>
+                <td th:text="${item.preco}"></td>
+                <td th:text="${item.quantidade}"></td>
+                <td ><a th:href="@{/aumentar-quantidade/{id}(id=${item.id})}">Aumentar</a></td>
+                <td><a th:href="@{/diminuir-quantidade/{id}(id=${item.id})}">Diminuir</a></td>
+                <td><a th:href="@{/remover-do-carrinho/{id}(id=${item.id})}">Remover</a></td>
+            </tr>    
+            <tr>
+                <td >Total</td>
+                <td colspan="6" th:text="${total}"></td>        
+            </tr>
+        </tbody>
+    </table>
+    <p><a href="/index">Continuar comprando</a></p>
+    <p><a href="/limpar-carrinho">Limpar Carrinho</a></p>
+  </body>
+</html>

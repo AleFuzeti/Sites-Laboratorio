@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cliente</title>
+    <link rel="stylesheet" type="text/css" href="/main.css">
+</head>
+<body>
+    <div th:switch="${restaurantes}">
+        <h2 th:case="null">Ainda não há restaurantes!</h2>
+        <div th:case="*">
+            <h1>Restaurantes</h1>
+            <table>
+                <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Cardápio</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="restaurante : ${restaurantes}">
+                    <td th:text="${restaurante.nome}"></td>
+                    <td><a th:href="@{/cardapio/{id}(id=${restaurante.id})}">Cardápio</a></td>
+                </tr>
+                </tbody>
+            </table>
+            <p><a href="/carrinho">Ver Carrinho</a></p>
+        </div>
+    </div>
+</body>
+</html>
