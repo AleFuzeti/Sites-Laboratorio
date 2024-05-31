@@ -1,0 +1,19 @@
+<h2>Produtos</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="produto : ${sessionFavoritos}">
+            <td th:text="${produto.nome}"></td>
+            <td th:text="${produto.preco}"></td>
+            <td th:text="${produto.quantidade}"></td>
+            <td><a th:href="@{/favoritos/remover/{id}(id=${produto.id})}">Remover</a></td>
+        </tr>
+    </tbody>
+</table>
+<p><a href="/index">Listar todos os produtos</a></p>

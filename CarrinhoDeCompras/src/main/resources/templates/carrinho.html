@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+      <meta charset="UTF-8">
+      <title>Carrinho de Compras</title>
+      <link rel="stylesheet" type="text/css" href="/main.css">
+  </head>
+  <body>
+    <h2>Carrinho de Compras</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Preço</th>
+                <th>Quantidade</th>
+                <th>Remover</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="produto : ${carrinho}">
+                <td th:text="${produto.nome}"></td>
+                <td th:text="${produto.preco}"></td>
+                <td>
+                    <form th:action="@{/atualizar-quantidade-no-carrinho}" method="post">
+                        <input type="hidden" name="id" th:value="${produto.id}">
+                        <input type="hidden" name="quantidade" th:value="${produto.quantidade}">
+                        <button type="submit" name="action" value="remove">-</button>
+                        <span th:text="${produto.quantidade}"></span>
+                        <button type="submit" name="action" value="add">+</button>
+                    </form>
+                </td>
+                <td><a th:href="@{/remover-do-carrinho/{id}(id=${produto.id})}">Remover</a></td>
+            </tr>    
+            <tr>
+                <td >Total</td>
+                <td colspan="3" th:text="${total}"></td>        
+        </tbody>
+    </table>
+    <p><a href="/index">Continuar comprando</a></p>
+    <p><a href="/limpar-carrinho">Limpar Carrinho</a></p>
+  </body>
+</html>

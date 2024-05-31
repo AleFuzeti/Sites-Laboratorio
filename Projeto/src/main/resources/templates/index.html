@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html xmlns="https://www.thymeleaf.org">
+<head>
+    <title>Calculadora</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/cssandjs/calc.css}">
+</head>
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #4276d6;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+div {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+}
+
+form {
+    width: 300px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="number"], select {
+    width: calc(100% - 12px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #3587df;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+</style>
+<body>
+    <div>
+    <h1> CALCULADORA</h1>
+        <form action="/calcular" method="post">
+            <input type="number" name="value1" placeholder="Digite o primeiro valor" required><br>
+            <input type="number" name="value2" placeholder="Digite o segundo valor" required><br>
+            <select name="op" required>
+                <option value="soma">Soma</option>
+                <option value="subtracao">Subtração</option>
+                <option value="multiplicacao">Multiplicação</option>
+                <option value="divisao">Divisão</option>
+            </select><br>
+            <button type="submit">Calcular</button>
+        </form>
+    </div>
+</body>
+</html>
