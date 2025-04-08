@@ -23,15 +23,6 @@ Durante a disciplina, foram desenvolvidos projetos web completos que envolvem:
 - Maven
 - HTML, CSS
 
-## 🗂️ Estrutura
-
-Cada projeto está em uma pasta separada, contendo:
-
-- Código-fonte backend (`src/`)
-- Configurações do banco de dados (`application.properties`)
-- Templates HTML (se aplicável)
-- Scripts SQL (se necessário)
-
 ## 🎯 Objetivo
 
 Aplicar na prática os conhecimentos sobre desenvolvimento web fullstack com Java e Spring, reforçando conceitos de banco de dados, integração backend/frontend e arquitetura em camadas.
